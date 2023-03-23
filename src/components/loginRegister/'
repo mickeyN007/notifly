@@ -1,0 +1,135 @@
+import React, { Component } from 'react'
+
+import { Link } from "react-router-dom";
+import { mySettings } from './../../settings'
+import LoadingScreen from './../helpers/loadingScreen'
+
+import '../../css/login.css'
+
+export default class Login extends Component {
+  constructor() {
+    super()
+    this.state = {
+      email: '',
+      password: '',
+    }
+  }
+  render() {
+    return (
+      <div style={styles.container}>
+				<div style={styles.subCon}>
+					<div style={styles.label}><b>Email</b></div>
+					<input
+						onChange={(e) => this.setState({email: e.target.value})}
+						placehoder="Email"
+						type='email' style={styles.input}
+					/>
+
+					<span style={styles.label}><b>Password</b></span>
+					<input
+						onChange={(e) => this.setState({password: e.target.value})}
+						placehoder="Password"
+						type='password'
+						style={styles.input}
+					/>
+
+					<div>Trouble logging in? <Link to='/recover'>Recover your account.</Link></div>
+					<div>Don't have an account? <Link to='/register'>Register</Link></div>
+
+					<div className='login-btn' onClick={this.login.bind(this)}>Sign in</div>
+				</div>
+      </div>
+    )
+  }
+  toggleLoading(loading) {
+    this.props.toggleLoading(loading)
+  }
+  login() {
+    const { email, password } = this.state
+    var body;
+    if (/\S/.test(email) && /\S/.test(password)) {
+      this.toggleLoading(true)
+      //this.setState({loading: true})
+      // enrypt password
+      // bcrypt.hash(password, 10, function(err, hash) {
+        //password = hash
+
+        const {method, headers} = mySettings.optionsB
+        body = JSON.stringify({email, password})
+        var options = {body, method, headers}
+        fetch(mySettings.serverID+'api/login', options)
+        .then(data => data.json())
+        .then (data => {
+          this.toggleLoading(false)
+          if (data.status){
+            window.localStorage.setItem('token', data.token.user)
+            window.location.href='/dashboard'
+          }
+          else {
+            alert(data.msg)
+          }
+        })
+        .catch(err =>{ alert("Can't connect to our servers at the moment"); this.toggleLoading(false)})
+    }
+    else{
+      alert('Please fill all fields!')
+    }
+  }
+  storeSession(token) {
+    localStorage.setItem('token', JSON.stringify(token))
+  }
+  isLoggedIn(token) {
+    return localStorage.getItem('token') ? true : false
+  }
+  logOut() {
+    localStorage.removeItem('token')
+  }
+  goToAccount(token) {
+    /*this.storeSession(token)
+    this.props.history.push({
+      pathname: '/account',
+      state: {
+        username: token.user.name,
+      }
+    })
+    window.location.href='/account'*/
+  }
+}
+
+const styles = {
+  container: {
+		width: '80%',
+		margin: 'auto',
+		border: '1px solid #d3ced2',
+		padding: '40px 20px',
+
+  },
+	subCon: {
+		width: '90%',
+		margin: 'auto',
+	},
+  input: {
+    padding: '2.5%',
+    width: '80%',
+    display: 'block',
+		marginBottom: '20px'
+  },
+	btn: {
+		backgroundColor: '#C12DBC',
+		color: '#ffffff',
+		fontSize: '0.8rem',
+    padding: (window.innerWidth<=991) ? '8px 16px' : '16px 32px',
+		borderStyle: 'none',
+		marginTop: 20,
+		fontWeight: 600,
+		borderRadius: '50px',
+		width: (window.innerWidth<=991) ? '20%' : '7%',
+		display: 'flex',
+    cursor: 'pointer',
+		justifyContent: 'center'
+  },
+  label: {
+    display: 'flex',
+		fontSize: '.9em'
+  }
+}

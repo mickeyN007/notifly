@@ -1,0 +1,93 @@
+.loader {
+  height: 100vh;
+  width: 100%;
+  background: var(--hoq-black);
+  color: var(--hoq-white);
+  text-transform: capitalize;
+  z-index: 700;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.loader .loading {
+  height: 10rem;
+  width: 10rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top: 10px solid var(--hoq-black);
+  position: relative;
+  -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem #e1e1e1;
+  box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem #e1e1e1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-animation: pulse 3s infinite;
+  animation: pulse 3s infinite;
+}
+.loader .loading img {
+  position: absolute;
+  width: 5rem;
+  -webkit-transform: translate(50%, 25%);
+  transform: translate(50%, 25%);
+}
+
+.styles {
+	display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+	-webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+	-webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.7);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.5);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.5);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.3);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.3);
+  }
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.7);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.7);
+  }
+  70% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.5);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.5);
+  }
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    -webkit-box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.3);
+    box-shadow: 0.01rem 0.01rem 0.2rem 0.1rem rgba(225, 225, 225, 0.3);
+  }
+}

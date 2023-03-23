@@ -1,0 +1,27 @@
+.products {
+	display: grid;
+	width: 100%;
+	grid-template-columns: .5fr 2fr 3fr 2fr repeat(3, 1fr) 2fr;
+	column-gap: 10px;
+	padding: 1%;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+.products-header {
+	font-weight: bold;
+	grid-template-rows: auto;
+	border-style: outset;
+
+}
+
+.products-data {
+	grid-template-rows: 150px;
+}
+
+.products-data:hover {
+	background: #f4f4f4;
+	border-style: solid;
+}
+
+

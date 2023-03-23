@@ -1,0 +1,167 @@
+.slider {
+  position: relative;
+  height: 55vh;
+  overflow: hidden;
+  white-space: nowrap;
+
+  position: relative;
+}
+.slide {
+	width: 100%;
+	height: 100%;
+}
+.img-box {
+  -o-object-fit: cover;
+  object-fit: cover;
+	-o-object-position: 90% 10%;
+	filter: brightness(20%);
+}
+
+.slider .slider-wrapper .slide div.content {
+  position: absolute;
+  top: 15%;
+  left: 35%;
+}
+
+.slide div.content h1 {
+	font-weight: bold;
+}
+
+
+.flight-search-box {
+	background: white;
+	border-radius: 5px;
+	width: 90%;
+	padding: 1.5em;
+}
+
+.locations {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 1rem;
+}
+
+.paddB {
+}
+.airline input {
+	padding: 5px;
+	width: 96%;
+}
+.locations input {
+	padding: 5px;
+}
+
+.slider .slider-wrapper h1 {
+  margin: 0.8rem 0;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform ease-in .1s;
+}
+
+.nextArrow {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  z-index: 999;
+  color: red;
+}
+
+.backArrow {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  z-index: 999;
+  color: #fff;
+}
+
+.fa-arrow-right:before, .fa-arrow-left:before {
+  color: #222
+}
+
+.lemonada {
+  font-family: "Lemonada", cursive;
+}
+.inter {
+  font-family: "Inter", sans-serif;
+}
+.md-b-font {
+  font-size: 1.3rem;
+}
+
+.lbrown {
+  color: var(--hoq-lbrown);
+}
+
+#vids {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#vids a:first-of-type {
+  margin-bottom: 5px;
+}
+
+
+	.s-subCon {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 80%;
+		margin: auto;
+		margin-top: 20vh;
+	}
+
+@media only screen and (min-width: 1336px) {
+	.slider {
+		height: 50vh;
+	}
+	.flight-search-box {
+		left: 22%;
+	}
+
+}
+@media only screen and (max-width: 768px) {
+	.s-subCon {
+		flex-direction: column-reverse;
+		margin-top: 15vh;
+	}
+
+	.btn {
+		font-size: 1em;
+	}
+	.slider .slider-wrapper .slide div.content {
+		top: 5%;
+	}
+
+}
+
+@media (min-width: 768px) {
+  .md-b-font {
+    font-size: 1.5rem;
+  }
+  .l-font {
+    font-size: 2.7rem;
+  }
+}
+@media (min-width: 1200px) {
+  .l-font {
+    font-size: 4rem;
+  }
+}
